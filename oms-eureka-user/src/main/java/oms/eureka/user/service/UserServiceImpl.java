@@ -1,5 +1,7 @@
 package oms.eureka.user.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,13 @@ public class UserServiceImpl implements IUserService{
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Override
+	@Cacheable(value = "getUsers",keyGenerator = "wiselyKeyGenerator")
+	public List<User> getUsers() {
+		List<User> users = userRepository.findAll();
+		return users;
+	}
 	
 	 /**
      * 1 在 Service 层的实现类中的方法@缓存

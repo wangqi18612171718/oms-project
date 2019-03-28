@@ -11,7 +11,7 @@ var users = new Vue({
 	},
 	methods:{
 		findUsers : function(){
-			this.$http.get("/users/findUsers").then(function(res){
+			this.$http.get("/getUsers").then(function(res){
 				console.log(res.data);
 				users.usersList = res.data;
 			},function(){
