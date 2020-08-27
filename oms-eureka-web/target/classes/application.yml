@@ -18,7 +18,7 @@ spring:
  #  group: groupB 消费者组 相同组的消费者只能一个消费者收到消息，不同组的都可以收到消息
 feign:
   hystrix:
-    enabled: true #打开hystrix开关
+    enabled: false #打开hystrix开关
 hystrix:
   command:
     LoginService#getUser():  #default 使用default代表全局配置
