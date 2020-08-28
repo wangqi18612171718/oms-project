@@ -26,14 +26,16 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
     #instance-info-replication-interval-seconds: 10 ＃默认30秒 当服务状态改变，多久在服务注册列表相应并改变状态，健康管理
+logging:
+  level:
+    com.netflix: DEBUG
+    oms.eureka.user.mapper: debug
 #mybatis配置
 mybatis:
   typeAliasesPackage: oms.eureka.user.model
-  mapperLocations: classpath:mapper/*.xml
-  #configLocation: classpath:/mybatis-config.xml
-#logging:
- # level:
-  #  com.netflix: DEBUG
+  mapperLocations: classpath:mybatis/mapper/*.xml
+  configLocation: classpath:mybatis/mybatis-config.xml
+    
 #rabbitmq:
 #  host: localhost
 #  port: 5672
