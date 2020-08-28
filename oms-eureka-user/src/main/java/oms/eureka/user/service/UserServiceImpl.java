@@ -11,19 +11,29 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 
+import oms.eureka.user.mapper.UserMapper;
 import oms.eureka.user.model.User;
 import oms.eureka.user.repository.UserRepository;
-
+/**
+ * 一般的保存修改我们可以使用JPA来操作 userRepository
+ *  复杂的查询使用mybatis来操作
+ * @author wangqi
+ *
+ */
 @Service
 public class UserServiceImpl implements IUserService{
 
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private UserMapper userMapper;
+	
 	@Override
 	@Cacheable(value = "getUsers",keyGenerator = "wiselyKeyGenerator")
 	public List<User> getUsers() {
-		List<User> users = userRepository.findAll();
+//		List<User> users = userRepository.findAll();
+		List<User> users = userMapper.queryAllUsers();
 		return users;
 	}
 	

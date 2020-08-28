@@ -12,7 +12,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 /**
- * 通过拦截feign客户端请求，把本地线程头部信息从的cookie传递给feign客户端调用的服务
+ * 通过拦截feign客户端请求，把本地线程头部信息的cookie传递给feign客户端调用的服务
  * @author wangqi
  *
  */
